@@ -1,18 +1,23 @@
-Feature: Configurar Perfiles del Cursor
+Feature: Gestionar perfiles del cursor
   Como paciente
-  Quiero configurar velocidad, sensibilidad y tiempo de selección
-  Para guardar mis preferencias como perfiles reutilizables.
+  Quiero gestionar mis perfiles del cursor
+  Para cambiar configuraciones rápidamente
 
-  Scenario: Guardar una nueva configuración de cursor
-    Given que el paciente está en Accesibilidad
-    When accede a "Ajustes del cursor"
+  Scenario: Agregar un nuevo perfil
+    Given que el paciente está en la "Lista de cursores"
+    When presiona "Agregar"
     And ajusta velocidad, sensibilidad y tiempo de selección
+    And asigna el nombre "Noche"
     And presiona "Guardar configuración"
-    Then la aplicación guarda los ajustes como un nuevo perfil
-    And muestra la pantalla "Lista de configuración"
+    Then el perfil "Noche" aparece en la "Lista de cursores"
 
-  Scenario: Salir sin guardar cambios
-    Given que el paciente modificó los deslizadores
-    When selecciona "Salir"
-    Then la aplicación descarta los cambios
-    And regresa a la pantalla de Accesibilidad
+  Scenario: Usar un perfil existente
+    Given que el paciente está en la "Lista de cursores"
+    When selecciona el perfil "Noche"
+    And presiona "Usar"
+    Then la configuración del perfil se aplica al cursor
+
+  Scenario: Eliminar un perfil
+    Given que el paciente ha seleccionado el perfil "Noche"
+    When presiona "Eliminar"
+    Then el perfil "Noche" desaparece de la "Lista de cursores"
