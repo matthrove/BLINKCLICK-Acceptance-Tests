@@ -1,14 +1,14 @@
-Feature: Acceso al Menú de Configuración
+Feature: Botón de Inicio en la barra inferior
   Como usuario
-  Quiero acceder al menú de configuración desde el ícono de tuerca
-  Para personalizar mis preferencias.
+  Quiero usar el ícono de "Inicio" para volver a la pantalla principal
+  Para navegar rápidamente desde cualquier sección
 
-  Scenario: Acceso a configuraciones
-    Given que el usuario está en la pantalla principal
-    When selecciona el ícono de tuerca
-    Then se abre el menú de configuración general
+  Scenario: Regresar al Inicio desde una sección interna
+    Given que el paciente está en una pantalla secundaria
+    When presiona el ícono de "Inicio" en la barra inferior
+    Then es redirigido a la pantalla principal
 
-  Scenario: Modificación de una opción
-    Given que el usuario está en el menú de configuración
-    When selecciona "Apariencia: modo oscuro"
-    Then la interfaz cambia al modo oscuro
+  Scenario: No realizar acción si ya está en Inicio
+    Given que el paciente está en la pantalla principal
+    When presiona el ícono de "Inicio"
+    Then la aplicación no realiza ningún cambio
