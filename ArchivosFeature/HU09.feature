@@ -1,20 +1,21 @@
-Feature: Gestionar Alertas y Estadísticas
-  Como paciente o cuidador
-  Quiero activar o desactivar alertas y estadísticas
-  Para controlar la información que recibo.
+Feature: Gestión de Recordatorios y Notas
+  Como usuario
+  Quiero crear, editar y eliminar recordatorios
+  Para organizar mi información en un solo lugar
 
-  Scenario: Desactivar estadísticas
-    Given que el paciente está en la pantalla principal
-    When accede a Configuración → Accesibilidad → Notificaciones y Alertas
-    And desactiva "Estadísticas"
-    Then la aplicación deja de procesar estadísticas del usuario
+  Scenario: Acceso a Recordatorios
+    Given que el usuario está en la pantalla principal
+    When presiona el ícono "+"
+    Then la aplicación muestra la pantalla "Recordatorios" con la lista de notas
 
-  Scenario: Desactivar alertas
-    Given que el paciente está en "Notificaciones y Alertas"
-    When desactiva "Alertas"
-    Then la aplicación deja de enviar notificaciones de alerta
+  Scenario: Editar una nota existente
+    Given que el usuario está en la pantalla "Recordatorios"
+    When selecciona la nota "Lista de compras"
+    And presiona el ícono "Editar"
+    Then puede modificar los ítems de la nota
 
-  Scenario: Activar configuración
-    Given que la opción "Configuración" está desactivada
-    When el paciente la activa
-    Then la aplicación habilita nuevamente la gestión remota de configuración
+  Scenario: Eliminar una nota
+    Given que el usuario está en la pantalla "Recordatorios"
+    When presiona el ícono "Eliminar"
+    Then el sistema solicita confirmación
+    And elimina la nota seleccionada
