@@ -1,23 +1,15 @@
-Feature: Vincular y Desvincular Cuentas de Servicios Externos
-  Como paciente o cuidador
-  Quiero vincular mis cuentas externas
-  Para integrarlas con Blink & Click.
+Feature: Acceder al menú de Configuraciones
+  Como usuario
+  Quiero acceder al menú de Configuración
+  Para gestionar los ajustes principales de la aplicación
 
-  Scenario: Vincular cuenta de Gmail
-    Given que el paciente está en la pantalla principal
-    When accede a Configuración → Vincular con cuentas
-    And selecciona "Gmail"
-    Then el sistema abre el flujo de autenticación
-    And completa la vinculación
+  Scenario: Acceso a Configuraciones
+    Given que el usuario está en la pantalla principal
+    When presiona el ícono de "Configuraciones" en la barra inferior
+    Then la aplicación muestra la pantalla "Configuraciones"
+    And aparecen las opciones Vincular con cuidador, Accesibilidad, Historial, Vincular con cuentas y Seguridad
 
-  Scenario: Desvincular una cuenta
-    Given que el paciente tiene vinculada una cuenta externa
-    When accede a "Vincular con cuentas"
-    And presiona "Desvincular Cuenta"
-    And confirma la acción
-    Then la cuenta queda desvinculada
-
-  Scenario: Vincular cuenta de Youtube
-    Given que el paciente está en "Vincular con cuentas"
-    When selecciona "Youtube"
-    Then el sistema inicia el flujo de autenticación correspondiente
+  Scenario: Acceder al submenú Seguridad
+    Given que el usuario está en la pantalla "Configuraciones"
+    When selecciona la opción "Seguridad"
+    Then la aplicación lo dirige al panel de Seguridad
