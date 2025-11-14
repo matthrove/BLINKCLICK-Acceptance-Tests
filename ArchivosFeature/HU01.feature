@@ -1,25 +1,24 @@
 Feature: Pantalla de Inicio de Sesión
-  Como paciente o cuidador
-  Quiero iniciar sesión o registrarme con mis datos personales o cuentas externas
-  Para acceder a la aplicación de forma rápida, segura y personalizada.
+  Como usuario
+  Quiero acceder a la aplicación de forma segura
+  Para iniciar sesión o registrarme como nuevo usuario
 
-  Scenario: Registro exitoso con datos básicos
-    Given que el paciente abre la aplicación
-    When selecciona "Crear cuenta nueva"
-    And ingresa nombre, apellido, correo y contraseña
-    Then el sistema guarda la cuenta
-    And permite añadir una foto opcional
-    And redirige a la pantalla principal
+  Scenario: Inicio de sesión exitoso
+    Given que un paciente está en la pantalla "Iniciar Sesion"
+    When ingresa su usuario y contraseña correctos
+    And presiona "Iniciar Sesion"
+    Then el sistema lo autentica correctamente
+    And lo dirige a la pantalla principal de la aplicación
 
-  Scenario: Inicio de sesión social (Google/Facebook/Microsoft)
-    Given que el cuidador abre la aplicación
-    When selecciona "Iniciar con Google"
-    And valida sus credenciales
-    Then el sistema autentica al usuario
-    And permite el acceso a la aplicación
+  Scenario: Registro de un nuevo usuario
+    Given que un usuario nuevo está en la pantalla "Iniciar Sesion"
+    When presiona el enlace "Registrarse"
+    And completa los campos requeridos
+    And presiona "Registrarse"
+    Then el sistema crea la nueva cuenta
+    And lo dirige a la pantalla principal
 
-  Scenario: Error en inicio de sesión
-    Given que el paciente abre la aplicación
-    When ingresa credenciales incorrectas
-    Then el sistema muestra un mensaje de error
-    And no permite el acceso
+  Scenario: Inicio de sesión mediante Facebook
+    Given que el usuario está en la pantalla "Iniciar Sesion"
+    When presiona el ícono de Facebook
+    Then el sistema lo redirige a la autenticación de Facebook
