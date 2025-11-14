@@ -1,21 +1,22 @@
-Feature: Vincular con cuidador mediante QR
-  Como paciente (Miguel)
-  Quiero mostrar o escanear un código QR desde mi perfil
-  Para vincularme de forma segura con mi cuidador.
+Feature: Realizar calibración visual
+  Como paciente
+  Quiero calibrar el seguimiento ocular
+  Para mejorar la precisión del cursor
 
-  Scenario: El cuidador escanea el QR del paciente
-    Given que el paciente está en la pantalla principal
-    When presiona su ícono de perfil y luego el botón "QR"
-    And el cuidador escanea el código QR mostrado
-    Then el sistema muestra "Vinculados exitosamente"
+  Scenario: Calibración exitosa
+    Given que el paciente está en "Bienestar y Soporte"
+    When selecciona "Calibración Visual"
+    And sigue correctamente todos los puntos
+    Then la aplicación muestra "Calibración exitosa"
 
-  Scenario: El paciente escanea el QR del cuidador
-    Given que el paciente está en la pantalla "QR"
-    When presiona "Vincular" para activar la cámara
-    And escanea correctamente el QR del cuidador
-    Then el sistema muestra "Vinculados exitosamente"
+  Scenario: Pérdida de foco
+    Given que el paciente está en proceso de calibración
+    When el sistema pierde el foco de la mirada
+    Then se muestra el mensaje "Enfoca tu mirada"
+    And desaparece al recuperar el foco
 
-  Scenario: Cerrar sesión desde el perfil
-    Given que el paciente está en su pantalla de Perfil
-    When presiona el botón "Cerrar Sesion"
-    Then la aplicación cierra la sesión del paciente
+  Scenario: Abandonar la calibración
+    Given que el paciente está en el proceso de calibración
+    When presiona "Retroceder"
+    Then la aplicación cancela la calibración
+    And vuelve a "Bienestar y Soporte"
