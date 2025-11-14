@@ -1,17 +1,20 @@
-Feature: Recordatorios de Descanso Visual
+Feature: Configurar Zoom
   Como paciente
-  Quiero configurar recordatorios de descanso
-  Para evitar la fatiga ocular.
+  Quiero configurar el gesto de Zoom
+  Para adaptar la ampliación de la pantalla a mis necesidades
 
-  Scenario: Configurar recordatorio para días específicos
-    Given que el paciente está en Bienestar y Soporte
-    When selecciona "Configuración de descanso visual"
-    And activa recordatorios
-    And selecciona un intervalo
-    And elige un día específico en el calendario
-    Then la aplicación programa las alertas para ese día
+  Scenario: Ajustar y guardar el nivel de Zoom
+    Given que el paciente está en "Ajustes rápidos"
+    When presiona "Panel de gestos"
+    And selecciona "Zoom"
+    And ajusta el deslizador a un nivel preferido
+    And presiona "Guardar cambios"
+    Then el nuevo nivel de zoom se guarda y se aplica
+    And la app regresa al "Panel de gestos"
 
-  Scenario: Posponer la notificación
-    Given que el paciente recibe la notificación "Es momento de descansar la vista"
-    When selecciona "Posponer 10 min"
-    Then la notificación reaparece 10 minutos después
+  Scenario: Cancelar cambios de Zoom
+    Given que el paciente está en la pantalla "Zoom"
+    And ha movido el deslizador
+    When presiona "Cancelar cambios"
+    Then los ajustes no se guardan
+    And la app regresa al "Panel de gestos"
