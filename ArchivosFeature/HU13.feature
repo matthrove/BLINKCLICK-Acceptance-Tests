@@ -1,19 +1,14 @@
-Feature: Botón de Logo para Retorno al Inicio
-  Como usuario
-  Quiero volver a la pantalla principal usando el logo
-  Para navegar de forma más rápida.
+Feature: Alternar entre Modo Claro y Modo Oscuro
+  Como paciente
+  Quiero cambiar el tema visual de la aplicación
+  Para mejorar mi comodidad visual
 
-  Scenario: Retorno al inicio desde una sección interna
-    Given que el usuario está en una sección interna como "Conócenos"
-    When selecciona el logo de Blink & Click
-    Then el sistema lo redirige a la pantalla principal
+  Scenario: Activar Modo Oscuro
+    Given que el paciente está en la pantalla principal con tema claro
+    When presiona el ícono de "luna"
+    Then la interfaz cambia al tema oscuro
 
-  Scenario: Sin acción cuando ya está en inicio
-    Given que el usuario está en la pantalla principal
-    When selecciona el logo
-    Then la aplicación no realiza ninguna acción
-
-  Scenario: Retorno manteniendo la sesión activa
-    Given que el usuario tiene sesión activa
-    When selecciona el logo
-    Then la aplicación lo lleva al inicio sin solicitar autenticación
+  Scenario: Desactivar Modo Oscuro
+    Given que el paciente tiene el Modo Oscuro activado
+    When presiona el ícono de "sol"
+    Then la interfaz cambia al tema claro
