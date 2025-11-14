@@ -1,15 +1,19 @@
-Feature: Acceso y Personalización de Redes Sociales
+Feature: Volver al Inicio mediante el logo
   Como usuario
-  Quiero acceder y agregar redes sociales desde los íconos
-  Para gestionar mis accesos personalizados.
+  Quiero usar el logo de Blink & Click para regresar al inicio
+  Para navegar de forma rápida y sencilla
 
-  Scenario: Acceso a una red social existente
-    Given que el usuario está en la pantalla principal
-    When selecciona el ícono de Facebook
-    Then el sistema abre Facebook en una nueva pestaña
+  Scenario: Retorno al Inicio desde una sección interna
+    Given que el usuario se encuentra en "Conócenos"
+    When selecciona el logo Blink & Click
+    Then el sistema lo redirige a la pantalla principal
 
-  Scenario: Agregar una nueva red social
+  Scenario: No hay acción si ya está en Inicio
     Given que el usuario está en la pantalla principal
-    When selecciona el ícono "+"
-    Then el sistema muestra un formulario para añadir una red social
-    And agrega el nuevo acceso a la lista
+    When selecciona el logo
+    Then no ocurre ningún cambio
+
+  Scenario: Mantener sesión activa al retornar
+    Given que el usuario tiene sesión iniciada
+    When selecciona el logo
+    Then regresa al inicio sin solicitar autenticación
