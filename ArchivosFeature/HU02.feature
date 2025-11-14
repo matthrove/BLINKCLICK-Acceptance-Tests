@@ -1,19 +1,19 @@
 Feature: Edición del Perfil del Usuario
   Como paciente o cuidador
   Quiero editar mi información personal
-  Para mantener mis datos actualizados dentro de la aplicación.
+  Para mantener mis datos actualizados
 
-  Scenario: Actualización de datos básicos
-    Given que el paciente abre la sección Perfil
+  Scenario: Actualización de datos personales
+    Given que un paciente está en su pantalla de Perfil
     And selecciona "Editar Perfil"
-    When modifica su foto, nombre o apellido
-    And confirma los cambios
-    Then el sistema valida la información
-    And muestra un mensaje de éxito
+    When modifica los campos necesarios
+    And presiona "Guardar cambios"
+    Then el sistema guarda la información actualizada
+    And muestra la pantalla de Perfil con los datos corregidos
 
-  Scenario: Actualización de contraseña
-    Given que el paciente está en "Editar Perfil"
-    When cambia su contraseña
-    Then el sistema envía un correo de verificación
-    And al confirmar el correo
-    Then el sistema muestra "Contraseña actualizada"
+  Scenario: Cancelar la edición del perfil
+    Given que el paciente está en la pantalla "Editar Perfil"
+    And ha modificado el campo "Correo"
+    When presiona "Cancelar"
+    Then el sistema descarta los cambios
+    And regresa a la pantalla de Perfil
