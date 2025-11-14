@@ -1,15 +1,19 @@
-Feature: Estadísticas de Uso de Aplicaciones
+Feature: Acceso a la Bandeja de Notificaciones
   Como paciente
-  Quiero ver qué aplicaciones uso más
-  Para conocer mi actividad semanal.
+  Quiero ver y gestionar mis notificaciones
+  Para acceder a alertas e información importante
 
-  Scenario: Visualización de estadísticas de apps
-    Given que el paciente está en Ajustes Rápidos
-    When selecciona "Estadística"
-    Then el sistema muestra "Estadísticas en apps"
-    And presenta gráficos de uso semanal
+  Scenario: Visualización de notificaciones
+    Given que el paciente está en la pantalla principal
+    When presiona el ícono de notificaciones
+    Then se muestra la pantalla "Bandeja de entrada" con la lista de alertas
 
-  Scenario: Exportación de estadísticas de apps
-    Given que el paciente está en "Estadísticas en apps"
-    When presiona "Exportar como PDF"
-    Then la aplicación genera un PDF con los gráficos
+  Scenario: Descartar una notificación
+    Given que el paciente está en la pantalla "Bandeja de entrada"
+    When presiona "Descartar" en una notificación
+    Then esa notificación desaparece de la lista
+
+  Scenario: Acceder al contenido de una notificación
+    Given que el paciente está en la pantalla "Bandeja de entrada"
+    When presiona "acceder" en una notificación
+    Then la aplicación muestra su contenido en una nueva pantalla
