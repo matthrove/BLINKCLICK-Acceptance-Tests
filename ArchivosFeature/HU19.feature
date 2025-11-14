@@ -1,21 +1,17 @@
-Feature: Calibración Visual desde Bienestar y Soporte
+Feature: Activar y desactivar el Modo Reposo
   Como paciente
-  Quiero iniciar la calibración visual desde el menú de soporte
-  Para asegurar el correcto seguimiento de mi mirada.
+  Quiero activar o desactivar el Modo Reposo
+  Para pausar el control ocular cuando lo necesite
 
-  Scenario: Calibración exitosa
-    Given que el paciente está en Bienestar y Soporte
-    When selecciona "Calibración Visual"
-    And completa todos los puntos de enfoque
-    Then el sistema muestra "Calibración exitosa"
-    And permite repetir el proceso
+  Scenario: Activar modo reposo
+    Given que el paciente está en "Ajustes rápidos"
+    When selecciona "Reposo"
+    And presiona "Activar"
+    Then el cursor se oculta
+    And la app muestra "Modo Reposo Activado"
 
-  Scenario: Pérdida de foco durante calibración
-    Given que el paciente está siguiendo los iconos
-    When el sistema pierde el foco
-    Then se muestra "Enfoca tu mirada"
-
-  Scenario: Salir después de calibrar
-    Given que el paciente está en la pantalla "Calibración exitosa"
-    When presiona "Salir"
-    Then la aplicación regresa a la pantalla principal
+  Scenario: Desactivar modo reposo
+    Given que el paciente está en la pantalla "Modo Reposo"
+    When presiona "Desactivar"
+    Then el cursor ocular se reactiva
+    And la app muestra "Modo Reposo Desactivado"
