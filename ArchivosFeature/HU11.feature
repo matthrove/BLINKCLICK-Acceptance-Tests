@@ -1,19 +1,23 @@
-Feature: Estadísticas Generales del Usuario
-  Como paciente
-  Quiero visualizar y exportar mis estadísticas
-  Para ver mi progreso en la aplicación.
+Feature: Gestión de Atajos en la Barra Superior
+  Como usuario
+  Quiero agregar y eliminar atajos visibles en la parte superior
+  Para acceder rápidamente a mis aplicaciones favoritas
 
-  Scenario: Visualización de estadísticas
-    Given que el paciente está en la pantalla principal
-    When accede a Ajustes Rápidos → Estadística
-    Then el sistema muestra un gráfico con su tiempo de uso
+  Scenario: Agregar un atajo desde la barra superior
+    Given que el usuario está en la pantalla principal
+    When presiona el botón "+"
+    And completa el formulario "Agregar Atajo"
+    And presiona "Agregar"
+    Then el nuevo atajo aparece en la barra superior
 
-  Scenario: Exportación de resumen en PDF
-    Given que el paciente está en la pantalla de Estadística
-    When presiona "Exportar como PDF"
-    Then el sistema genera un PDF con el resumen de estadísticas
+  Scenario: Eliminar un atajo desde la barra superior
+    Given que el usuario ve un atajo en la barra superior
+    When mantiene presionado el ícono
+    And aparece el símbolo "-"
+    And presiona el símbolo "-"
+    Then el atajo desaparece de la barra superior
 
-  Scenario: Consultar resultados detallados
-    Given que el paciente está en la pantalla de Estadística
-    When selecciona "Resultados"
-    Then el sistema muestra métricas detalladas de su uso
+  Scenario: Cancelar la adición de un atajo
+    Given que el usuario está en el formulario "Agregar Atajo"
+    When presiona "Cancelar"
+    Then el sistema regresa a la pantalla principal sin agregar el atajo
