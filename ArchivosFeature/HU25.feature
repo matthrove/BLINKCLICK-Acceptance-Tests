@@ -1,19 +1,23 @@
-Feature: Seleccionar rol para iniciar sesión
-  Como usuario
-  Quiero elegir si soy Paciente o Cuidador desde la landing page
-  Para acceder al flujo de login correspondiente.
+Feature: Vincular con cuidador y gestionar dispositivos vinculados
+  Como paciente
+  Quiero vincular mi cuenta con mi cuidador
+  Para gestionar dispositivos conectados
 
-  Scenario: Iniciar sesión como Paciente
-    Given que el usuario está en la landing page
-    When presiona "Acceder" y luego "Paciente"
-    Then el sistema lo redirige a la pantalla de inicio de sesión del paciente
+  Scenario: El paciente escanea al cuidador
+    Given que el paciente está en Configuración
+    When selecciona "Vincular con cuidador"
+    And presiona "Vincular"
+    And acepta el permiso de cámara
+    And escanea el código QR del cuidador
+    Then el nuevo dispositivo aparece en "Dispositivos Vinculados"
 
-  Scenario: Iniciar sesión como Cuidador
-    Given que el usuario está en la landing page
-    When presiona "Acceder" y luego "Cuidador"
-    Then el sistema lo redirige a la pantalla de inicio de sesión del cuidador
+  Scenario: El cuidador escanea al paciente
+    Given que el paciente está en "Vinculación"
+    When el cuidador escanea el código QR mostrado
+    Then su dispositivo aparece en "Dispositivos Vinculados"
 
-  Scenario: Acceder al registro
-    Given que un usuario está en la landing page
-    When presiona el botón "Registrarse"
-    Then el sistema muestra el formulario de creación de cuenta
+  Scenario: Desvincular un dispositivo
+    Given que el paciente ve un dispositivo vinculado
+    When lo selecciona
+    And presiona "Cerrar Sesión"
+    Then el dispositivo se elimina de la lista
