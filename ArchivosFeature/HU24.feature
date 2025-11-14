@@ -1,19 +1,20 @@
-Feature: Monitorear historial y alertas del paciente
-  Como cuidador
-  Quiero acceder al perfil del paciente vinculado
-  Para ver estadísticas y registro de alertas.
+Feature: Reportar un problema
+  Como usuario
+  Quiero reportar un problema
+  Para recibir asistencia
 
-  Scenario: Visualizar estadísticas de uso
-    Given que el cuidador tiene un paciente vinculado
-    When presiona "Estadisticas de uso"
-    Then la aplicación muestra la pantalla con las estadísticas del paciente
+  Scenario: Reportar problema preestablecido
+    Given que el paciente está en "Bienestar y Soporte"
+    When selecciona "Reportar Problema"
+    And marca "Errores o fallos técnicos"
+    And presiona "Enviar Reporte"
+    Then el sistema registra el reporte
+    And muestra "Reporte enviado con éxito"
 
-  Scenario: Visualizar registro de alertas
-    Given que el cuidador está en el perfil del paciente vinculado
-    When presiona "Registro de alertas"
-    Then la aplicación muestra la lista de alertas registradas
-
-  Scenario: Cuidador sin paciente vinculado
-    Given que el cuidador no ha vinculado a ningún paciente
-    When intenta acceder a "Registro de alertas" o "Estadisticas de uso"
-    Then el sistema muestra el mensaje "Sin paciente registrado"
+  Scenario: Reportar problema personalizado
+    Given que el usuario está en "Reportar Problema"
+    When marca "otros:"
+    And escribe "Errores en vinculación"
+    And presiona "Enviar Reporte"
+    Then el sistema registra el reporte personalizado
+    And muestra "Reporte enviado con éxito"
