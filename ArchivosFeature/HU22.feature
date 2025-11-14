@@ -1,21 +1,22 @@
-Feature: Gestionar la lista de contactos para el Mensaje SOS
-  Como paciente o cuidador
-  Quiero gestionar mis contactos de emergencia
-  Para definir a quién se enviará la alerta SOS.
+Feature: Configurar descanso visual
+  Como paciente
+  Quiero activar un filtro de descanso visual
+  Para reducir la fatiga ocular
 
-  Scenario: Agregar un nuevo contacto
-    Given que el paciente está en la "Lista de contactos" desde "Mensaje SOS"
-    When presiona el botón "ADD +"
-    And completa los campos "Nombre", "Apellido" y "Numero"
-    And guarda el nuevo contacto
-    Then el contacto agregado aparece en la lista junto a los demás
+  Scenario: Activar filtro preestablecido
+    Given que el paciente está en "Bienestar y Soporte"
+    When selecciona "Descanso visual"
+    And presiona "1 semana"
+    Then el filtro amarillento se activa por 7 días
 
-  Scenario: Eliminar un contacto
-    Given que el paciente ve la "Lista de contactos"
-    When presiona el ícono "Eliminar" junto al contacto "Papa"
-    Then el contacto "Papa" desaparece de la lista
+  Scenario: Personalizar horario del filtro
+    Given que el paciente está en "Descanso visual"
+    When presiona "Personalizar"
+    And selecciona días específicos y horario
+    And presiona "Programar"
+    Then el filtro se activará automáticamente según la programación
 
-  Scenario: Llamar a un contacto
-    Given que el paciente está en la "Lista de contactos"
-    When presiona el ícono de "Llamar" junto a "Mama"
-    Then la aplicación inicia una llamada al número registrado para "Mama"
+  Scenario: Desactivar el filtro
+    Given que el paciente tiene el filtro activo
+    When presiona "Desactivar"
+    Then el filtro amarillento se desactiva
