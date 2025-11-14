@@ -1,14 +1,20 @@
-Feature: Tutorial Interactivo
-  Como paciente o cuidador
-  Quiero acceder a un tutorial interactivo
-  Para comprender el uso de las funciones principales.
+Feature: Configurar Zoom
+  Como paciente
+  Quiero configurar el gesto de Zoom
+  Para adaptar la ampliación de la pantalla a mis necesidades
 
-  Scenario: Consultar el tutorial
-    Given que un paciente accede a Bienestar y Soporte
-    When selecciona "Sistema de Guía y Ayuda al Usuario"
-    Then la aplicación muestra un tutorial de 3 a 5 pantallas
+  Scenario: Ajustar y guardar el nivel de Zoom
+    Given que el paciente está en "Ajustes rápidos"
+    When presiona "Panel de gestos"
+    And selecciona "Zoom"
+    And ajusta el deslizador a un nivel preferido
+    And presiona "Guardar cambios"
+    Then el nuevo nivel de zoom se guarda y se aplica
+    And la app regresa al "Panel de gestos"
 
-  Scenario: Salir del tutorial
-    Given que el paciente está dentro del tutorial
-    When selecciona "Salir"
-    Then la aplicación regresa a la pantalla principal
+  Scenario: Cancelar cambios de Zoom
+    Given que el paciente está en la pantalla "Zoom"
+    And ha movido el deslizador
+    When presiona "Cancelar cambios"
+    Then los ajustes no se guardan
+    And la app regresa al "Panel de gestos"
