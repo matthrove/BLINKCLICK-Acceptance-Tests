@@ -1,18 +1,24 @@
-Feature: Reportar un Problema
-  Como paciente o cuidador
-  Quiero reportar un problema desde Bienestar y Soporte
-  Para informar fallos o dificultades.
+Feature: Enviar y configurar mensajes rápidos
+  Como paciente
+  Quiero gestionar mensajes predeterminados
+  Para comunicarme fácilmente con mis contactos
 
-  Scenario: Reportar un problema técnico
-    Given que el paciente está en la pantalla principal
-    When accede a Bienestar y Soporte → Reportar Problema
-    And marca "Errores o fallos técnicos" y "Problemas de conexión"
-    And presiona "Enviar Reporte"
-    Then el sistema registra el reporte con las categorías seleccionadas
+  Scenario: Agregar un nuevo mensaje predeterminado
+    Given que el paciente está en "Enviar mensaje rapido"
+    And selecciona "Configurar mensajes"
+    When presiona el botón "+"
+    And escribe un nuevo mensaje
+    And presiona "Aceptar"
+    Then el mensaje aparece en la lista de "Mensajes predeterminados"
 
-  Scenario: Reportar un problema personalizado
-    Given que el cuidador está en el formulario "Reportar Problema"
-    When marca "Problemas de compatibilidad"
-    And escribe "No funciona en mi tablet" en el campo de otros
-    And presiona "Enviar Reporte"
-    Then el sistema registra el reporte con la categoría y el mensaje personalizado
+  Scenario: Eliminar un mensaje predeterminado
+    Given que el paciente está en la lista "Mensajes predeterminados"
+    When selecciona un mensaje existente
+    And presiona "Eliminar"
+    Then el mensaje desaparece de la lista
+
+  Scenario: Enviar un mensaje rápido al cuidador
+    Given que el paciente presiona el ícono de "mensaje"
+    When selecciona "Cuidador vinculado"
+    And presiona un mensaje predeterminado
+    Then la aplicación envía ese mensaje al cuidador
