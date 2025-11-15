@@ -12,3 +12,4 @@ Feature: Control de desplazamiento mediante mirada
     Given que el paciente intenta desplazarse en una dirección sin contenido
     When selecciona una flecha
     Then la aplicación muestra "No hay más contenido para desplazar."
+
