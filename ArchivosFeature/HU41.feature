@@ -9,3 +9,4 @@ Feature: Agregar nuevas categorías a la lista de Intereses
     And selecciona la categoría "Arte" en la pantalla "Selecciona una aplicación"
     Then la aplicación regresa a "Intereses"
     And muestra "Arte" como una nueva categoría en la lista
+
