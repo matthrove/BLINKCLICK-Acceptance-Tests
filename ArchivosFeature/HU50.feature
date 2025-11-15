@@ -1,9 +1,16 @@
-Feature: Visualizar la sección Acerca de
-  Como usuario
-  Quiero ver la versión de la app y su equipo de desarrollo
-  Para conocer información oficial del proyecto.
+Feature: Acceder al pie de página del sitio
+  Como visitante
+  Quiero acceder a contacto y redes sociales desde el footer
+  Para comunicarme o seguir al proyecto
 
-  Scenario: Acceso a la sección Acerca de
-    Given que el usuario está en el menú o configuración
-    When selecciona "Acerca de"
-    Then la pantalla muestra el logo, la versión y el equipo de Blink & Click
+  Scenario: Llamada directa
+    Given que el visitante selecciona "Llámanos"
+    Then el sitio muestra el número disponible
+
+  Scenario: Acceso a formulario de contacto
+    Given que el visitante selecciona "Contáctanos"
+    Then el sitio lo redirige al formulario de contacto
+
+  Scenario: Acceso a redes sociales
+    Given que selecciona una red social
+    Then se abre en una nueva pestaña
