@@ -1,13 +1,9 @@
-Feature: Usar teclado virtual accesible
-  Como paciente
-  Quiero un teclado virtual grande y de alto contraste
-  Para escribir usando el control ocular.
+Feature: Visualizar sección Misión
+  Como visitante
+  Quiero leer la misión del proyecto
+  Para entender su propósito
 
-  Scenario: Escribir y guardar una frase rápida
-    Given que el paciente está redactando un mensaje
-    When selecciona letras mediante la mirada
-    Then el texto aparece en pantalla
-    When guarda el texto como "Frase rápida"
-    Then la frase queda almacenada para uso futuro
-
-
+  Scenario: Lectura de misión
+    Given que el visitante se desplaza a "Misión"
+    When la sección aparece
+    Then puede leer el texto explicativo junto a su imagen
