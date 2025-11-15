@@ -12,3 +12,4 @@ Feature: Ajuste rápido de perfiles del cursor ocular
     Given que el paciente está en la pantalla de selección de perfiles
     When selecciona "Editar Perfiles"
     Then la aplicación muestra la pantalla de configuración avanzada del cursor ocular
+
