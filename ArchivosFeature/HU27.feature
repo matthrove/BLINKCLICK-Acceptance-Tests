@@ -17,3 +17,4 @@ Feature: Acceder al panel principal de navegación
     Given que el paciente está en la pantalla principal
     When selecciona el ícono de la tuerca
     Then accede al menú de Configuración General
+
