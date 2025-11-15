@@ -21,3 +21,4 @@ Feature: Configurar y probar gestos de Zoom y Rotar
     When presiona "Desactivar zoom"
     Then la función se desactiva
     And retorna al "Panel de gestos"
+
