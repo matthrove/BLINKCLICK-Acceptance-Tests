@@ -1,12 +1,9 @@
-Feature: Agregar nuevas categorías a la lista de Intereses
-  Como paciente
-  Quiero presionar el botón "Agregar nuevo +" en Intereses
-  Para añadir nuevas categorías como Arte o Cine.
+Feature: Navegar por el menú principal del sitio web
+  Como visitante
+  Quiero navegar por las secciones del sitio
+  Para desplazarme fácilmente
 
-  Scenario: Agregar una nueva categoría de interés
-    Given que el paciente está en la pantalla "Intereses"
-    When presiona el botón "Agregar nuevo +"
-    And selecciona la categoría "Arte" en la pantalla "Selecciona una aplicación"
-    Then la aplicación regresa a "Intereses"
-    And muestra "Arte" como una nueva categoría en la lista
-
+  Scenario: Navegación interna
+    Given que el visitante está en la página principal
+    When selecciona "Características" en el submenú de Inicio
+    Then el sitio hace scroll suave hacia la sección "Características"
