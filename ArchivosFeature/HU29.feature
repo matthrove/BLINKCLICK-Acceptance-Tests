@@ -1,15 +1,17 @@
-Feature: Ajuste rápido de perfiles del cursor ocular
+Feature: Configurar notificaciones y alertas
   Como paciente
-  Quiero acceder a mis perfiles de configuración del cursor
-  Para cargar rápidamente una configuración guardada.
+  Quiero gestionar la visibilidad de mis notificaciones
+  Para controlar qué información ve mi cuidador
 
-  Scenario: Cargar un perfil de cursor
-    Given que el paciente está en "Ajustes Rápidos"
-    When selecciona el perfil "Modo Preciso"
-    Then la sensibilidad y velocidad del cursor se actualizan inmediatamente a esa configuración
+  Scenario: Ocultar historial al cuidador
+    Given que el paciente está en "Notificaciones y Alertas"
+    And "Mostrar Historial" está activado
+    When desactiva "Mostrar Historial"
+    And presiona "Guardar cambios"
+    Then el cuidador ya no puede ver el historial del paciente
 
-  Scenario: Acceder a la configuración avanzada
-    Given que el paciente está en la pantalla de selección de perfiles
-    When selecciona "Editar Perfiles"
-    Then la aplicación muestra la pantalla de configuración avanzada del cursor ocular
-
+  Scenario: Cancelar cambios
+    Given que el paciente está en "Notificaciones y Alertas"
+    When desactiva "Mostrar Notificaciones"
+    And presiona "Cancelar cambios"
+    Then el interruptor vuelve a su estado original
