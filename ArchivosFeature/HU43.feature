@@ -16,3 +16,5 @@ Feature: Manejo de errores al cargar contenido
     When presiona "Reportar problema"
     Then la aplicación envía el reporte
     And muestra "Reporte enviado con exito!"
+
+
