@@ -1,17 +1,15 @@
-Feature: Activar la alerta SOS
-  Como paciente
-  Quiero confirmar el envío de una alerta SOS
-  Para contactar a mi cuidador inmediatamente en una emergencia.
+Feature: Notificar al cuidador cuando el historial está desactivado
+  Como cuidador
+  Quiero saber si el historial del paciente está oculto
+  Para entender por qué no puedo verlo
 
-  Scenario: Activación confirmada
-    Given que el paciente está en el panel de Seguridad
-    When selecciona "SOS(Alerta)" y luego "Confirmar"
-    Then la aplicación envía la alerta
-    And muestra "Alerta enviada con exito"
+  Scenario: Acceso a historial denegado
+    Given que el paciente desactivó "Mostrar Historial"
+    When el cuidador selecciona "Historial"
+    Then se muestra "Historial uso"
+    And aparece el mensaje "El paciente desactivo la visibilidad del historial"
 
-  Scenario: Cancelar la alerta
-    Given que el paciente está en la pantalla de confirmación SOS
-    When selecciona "Cancelar"
-    Then la aplicación regresa al panel de Seguridad
-    And no se envía ninguna alerta
-
+  Scenario: Acceso permitido al historial
+    Given que el paciente tiene activada la opción "Mostrar Historial"
+    When el cuidador selecciona "Historial"
+    Then se muestra el gráfico del historial de uso
