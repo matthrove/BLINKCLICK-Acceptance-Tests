@@ -1,17 +1,19 @@
-Feature: Activar Modo Reposo del cursor ocular
+Feature: Vincular y desvincular cuentas externas
   Como paciente
-  Quiero desactivar temporalmente el cursor ocular
-  Para descansar o evitar selecciones accidentales.
+  Quiero conectar mis cuentas de redes sociales y correo
+  Para vincularlas con la aplicación
 
-  Scenario: Activar modo reposo
-    Given que el paciente está en "Ajustes rápidos"
-    When selecciona "Reposo"
-    Then la aplicación oculta el cursor ocular
-    And muestra la pantalla "Modo Reposo Activado"
+  Scenario: Vincular cuenta de Facebook
+    Given que el paciente está en "Vincular con cuentas"
+    And Facebook no está vinculado
+    When presiona el botón verde "Vincular"
+    Then la aplicación lo redirige al inicio de sesión de Facebook
+    And tras ingresar usuario y contraseña
+    Then la cuenta queda vinculada
+    And el botón cambia a "Desvincular"
 
-  Scenario: Reactivar el cursor
-    Given que el paciente está en la pantalla "Modo Reposo Activado"
-    When toca la pantalla o presiona el ícono correspondiente
-    Then el cursor ocular se reactiva
-    And la aplicación regresa a la pantalla de "Ajustes rápidos"
-
+  Scenario: Desvincular una cuenta
+    Given que el paciente tiene Facebook vinculado
+    When presiona el botón rojo "Desvincular"
+    Then la cuenta se desconecta
+    And el botón vuelve a mostrar "Vincular"
