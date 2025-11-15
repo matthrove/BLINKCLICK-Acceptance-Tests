@@ -14,3 +14,4 @@ Feature: Activar Modo Reposo del cursor ocular
     When toca la pantalla o presiona el ícono correspondiente
     Then el cursor ocular se reactiva
     And la aplicación regresa a la pantalla de "Ajustes rápidos"
+
