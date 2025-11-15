@@ -9,3 +9,4 @@ Feature: Mostrar indicador visual de carga
     And la carga tarda más de un segundo
     Then la aplicación muestra la pantalla "Cargando..."
     And luego muestra la lista de "Redes Sociales" cuando termina la carga
+
