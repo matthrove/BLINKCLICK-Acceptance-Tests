@@ -1,12 +1,9 @@
-Feature: Mostrar indicador visual de carga
-  Como paciente
-  Quiero ver un indicador "Cargando..."
-  Para saber que la aplicación está procesando información.
+Feature: Visualizar mockups de la aplicación
+  Como visitante
+  Quiero ver la interfaz de la app
+  Para conocer su apariencia
 
-  Scenario: Mostrar indicador de carga al cambiar de pantalla
-    Given que el paciente está en la pantalla "Intereses"
-    When selecciona la categoría "Redes Sociales"
-    And la carga tarda más de un segundo
-    Then la aplicación muestra la pantalla "Cargando..."
-    And luego muestra la lista de "Redes Sociales" cuando termina la carga
-
+  Scenario: Carga visual
+    Given que el usuario está en la portada
+    When el sitio carga correctamente
+    Then se muestran dos teléfonos con la interfaz de Blink & Click
