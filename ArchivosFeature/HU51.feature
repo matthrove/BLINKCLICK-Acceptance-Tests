@@ -1,9 +1,9 @@
-Feature: Navegación principal del sitio web
+Feature: Visualizar página de fundadores
   Como visitante
-  Quiero navegar entre Inicio, Conócenos y Aliados
-  Para acceder rápidamente a la información.
+  Quiero ver información de los fundadores de Blink & Click
+  Para conocer al equipo detrás del proyecto
 
-  Scenario: Navegación interna
-    Given que un visitante está en la página principal
-    When selecciona "Características" en el submenú de Inicio
-    Then la vista se desplaza suavemente hacia esa sección
+  Scenario: Visualización de fundadores
+    Given que el visitante selecciona "Conócenos"
+    When la página carga
+    Then se muestran fotos, nombres y cargos de los fundadores
