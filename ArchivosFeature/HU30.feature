@@ -1,16 +1,20 @@
-Feature: Activar o desactivar el Modo Oscuro desde la barra superior
-  Como paciente (Miguel)
-  Quiero cambiar entre tema claro y oscuro desde el ícono de la barra superior
-  Para ajustar la apariencia de la interfaz rápidamente.
+Feature: Configurar volumen y modo silencio
+  Como paciente
+  Quiero ajustar el sonido del dispositivo
+  Para adaptarlo a mis preferencias
 
-  Scenario: Activación del Modo Oscuro
-    Given que el paciente está en la pantalla principal con el tema claro
-    When presiona el ícono de la luna
-    Then la interfaz cambia al tema oscuro
-    And el estado se guarda para futuras sesiones
+  Scenario: Ajustar volumen y guardar
+    Given que el paciente está en "Accesibilidad"
+    When selecciona "Sonido"
+    And baja "Tono de llamada"
+    And activa "Modo Silencio"
+    And presiona "Guardar cambios"
+    Then los nuevos ajustes se aplican
+    And la app regresa a "Accesibilidad"
 
-  Scenario: Desactivación del Modo Oscuro
-    Given que el modo oscuro está activado
-    When presiona el ícono del sol
-    Then la interfaz cambia al tema claro
-
+  Scenario: Ajustar volumen y cancelar
+    Given que el paciente está en la pantalla "Volumen"
+    When sube el deslizador de "Multimedia"
+    And presiona "Cancelar cambios"
+    Then el volumen de multimedia no se modifica
+    And la app regresa a "Accesibilidad"
