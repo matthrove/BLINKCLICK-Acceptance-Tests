@@ -7,3 +7,4 @@ Feature: Notificar al cuidador sobre fallos críticos del sistema
     Given que la aplicación del paciente se cierra inesperadamente
     When el sistema detecta el fallo
     Then se envía una notificación al cuidador indicando el tipo de problema y acciones sugeridas
+
