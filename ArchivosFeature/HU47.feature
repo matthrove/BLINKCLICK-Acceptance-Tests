@@ -1,9 +1,9 @@
-Feature: Confirmación visual de acciones
-  Como paciente
-  Quiero recibir un ícono visual de confirmación
-  Para saber que la acción fue realizada correctamente.
+Feature: Visualizar sección Visión
+  Como visitante
+  Quiero conocer la visión del proyecto
+  Para entender su enfoque futuro
 
-  Scenario: Confirmación después de una acción exitosa
-    Given que el paciente configura un ajuste o envía un mensaje
-    When la acción finaliza correctamente
-    Then aparece un ícono de check durante unos segundos
+  Scenario: Lectura de visión
+    Given que el visitante baja a la sección "Visión"
+    When la sección se muestra
+    Then visualiza el texto y su imagen complementaria
