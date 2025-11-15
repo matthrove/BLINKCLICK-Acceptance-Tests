@@ -14,3 +14,5 @@ Feature: Ajustar volumen y brillo desde Accesibilidad
     When selecciona "Pantalla"
     And mueve el deslizador de brillo hacia abajo
     Then el brillo de la pantalla disminuye
+
+
