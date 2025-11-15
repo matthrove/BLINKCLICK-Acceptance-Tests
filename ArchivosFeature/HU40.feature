@@ -17,3 +17,4 @@ Feature: Acceder a categorías de intereses y atajos guardados
     Given que el paciente está en la pantalla "Intereses"
     When selecciona "Agregar nuevo +"
     Then la aplicación muestra un formulario para crear un nuevo interés o atajo
+
