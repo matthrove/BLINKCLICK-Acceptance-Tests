@@ -1,21 +1,15 @@
-Feature: Acceder a la bandeja de notificaciones
-  Como paciente (Miguel)
-  Quiero abrir mi bandeja de entrada desde el ícono de campana
-  Para ver, leer o descartar notificaciones.
+Feature: Visualizar notificaciones recibidas por el paciente
+  Como paciente
+  Quiero ver mis notificaciones recientes
+  Para mantenerme informado
 
-  Scenario: Ver notificaciones
-    Given que el paciente está en la pantalla principal
-    When selecciona el ícono de campana en la barra superior
-    Then la aplicación muestra la pantalla "Bandeja de entrada" con la lista de notificaciones
+  Scenario: Visualización de notificaciones
+    Given que el paciente abre el menú flotante
+    When selecciona "Notificaciones"
+    Then se muestra un panel mediano con la lista de notificaciones recientes
+    And puede leerlas o descartarlas mediante la mirada
 
-  Scenario: Descartar una notificación
-    Given que el paciente está en la "Bandeja de entrada"
-    When presiona "Descartar" en una notificación
-    Then esa notificación desaparece de la lista
-
-  Scenario: Leer una notificación
-    Given que el paciente está en la "Bandeja de entrada"
-    When selecciona el botón "Leer"
-    Then la aplicación muestra el contenido detallado de la notificación
-
-
+  Scenario: Sin notificaciones disponibles
+    Given que el paciente accede al panel de notificaciones
+    When la interfaz se carga
+    Then la aplicación muestra "No tienes notificaciones pendientes."
