@@ -14,3 +14,4 @@ Feature: Activar la alerta SOS
     When selecciona "Cancelar"
     Then la aplicación regresa al panel de Seguridad
     And no se envía ninguna alerta
+
