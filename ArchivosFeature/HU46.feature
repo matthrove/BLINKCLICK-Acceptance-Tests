@@ -9,3 +9,5 @@ Feature: Usar teclado virtual accesible
     Then el texto aparece en pantalla
     When guarda el texto como "Frase rápida"
     Then la frase queda almacenada para uso futuro
+
+
