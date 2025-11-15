@@ -13,3 +13,4 @@ Feature: Activar o desactivar el Modo Oscuro desde la barra superior
     Given que el modo oscuro está activado
     When presiona el ícono del sol
     Then la interfaz cambia al tema claro
+
