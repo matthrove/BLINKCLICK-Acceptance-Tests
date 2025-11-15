@@ -1,10 +1,9 @@
-Feature: Mostrar indicador al aplicar cambios remotos
-  Como paciente
-  Quiero ver un mensaje cuando el cuidador aplica cambios
-  Para entender que la aplicación está procesando ajustes.
+Feature: Comprender cómo funciona la tecnología
+  Como visitante
+  Quiero leer una explicación clara del control ocular
+  Para entender cómo se usa el sistema
 
-  Scenario: Aplicación de cambios remotos
-    Given que el cuidador realiza un ajuste desde su celular
-    When el sistema sincroniza los cambios
-    Then se muestra "Aplicando cambios..."
-    And desaparece cuando finaliza la operación
+  Scenario: Comprensión del funcionamiento
+    Given que el visitante llega a la sección "¿Cómo funciona?"
+    When lee el contenido
+    Then comprende que la app funciona con seguimiento ocular
