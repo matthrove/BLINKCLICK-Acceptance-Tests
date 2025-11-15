@@ -1,9 +1,9 @@
-Feature: Submenú desplegable del Inicio
+Feature: Visualizar página de aliados
   Como visitante
-  Quiero ver las subopciones del menú Inicio
-  Para ir directamente a cada sección.
+  Quiero ver las organizaciones que colaboran con Blink & Click
+  Para conocer sus aliados institucionales
 
-  Scenario: Acceso a sección específica
-    Given que el visitante pasa el cursor sobre "Inicio"
-    When selecciona "Características"
-    Then el sitio hace scroll hacia la sección correspondiente
+  Scenario: Visualización de aliados
+    Given que el visitante selecciona "Aliados"
+    When la página carga
+    Then se muestran logotipos y nombres de los aliados
