@@ -1,18 +1,10 @@
-Feature: Ajustar volumen y brillo desde Accesibilidad
-  Como paciente
-  Quiero modificar sonido y brillo desde el menú de Accesibilidad
-  Para adaptar la aplicación a mis necesidades visuales y auditivas.
+Feature: Recibir alerta SOS del paciente
+  Como cuidador
+  Quiero recibir una notificación SOS del paciente
+  Para responder rápidamente a una emergencia
 
-  Scenario: Ajustar volumen
-    Given que el paciente está en el menú "Accesibilidad"
-    When selecciona "Sonido"
-    And mueve el deslizador de volumen hacia arriba
-    Then el volumen del dispositivo aumenta
-
-  Scenario: Ajustar brillo
-    Given que el paciente está en el menú "Accesibilidad"
-    When selecciona "Pantalla"
-    And mueve el deslizador de brillo hacia abajo
-    Then el brillo de la pantalla disminuye
-
-
+  Scenario: Recepción de alerta SOS
+    Given que el paciente presionó "Confirmar" en su SOS
+    When el cuidador está usando la app
+    Then aparece un pop-up con el mensaje "ALERTA SOS"
+    And el ícono de advertencia
