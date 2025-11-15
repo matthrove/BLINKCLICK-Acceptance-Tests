@@ -17,3 +17,5 @@ Feature: Acceder a la bandeja de notificaciones
     Given que el paciente está en la "Bandeja de entrada"
     When selecciona el botón "Leer"
     Then la aplicación muestra el contenido detallado de la notificación
+
+
