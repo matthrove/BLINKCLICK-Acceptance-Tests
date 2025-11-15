@@ -17,3 +17,4 @@ Feature: Crear y gestionar anotaciones o recordatorios
     Given que el usuario desea eliminar un recordatorio
     When presiona el ícono de eliminar
     Then el sistema pide confirmación y elimina la nota
+
