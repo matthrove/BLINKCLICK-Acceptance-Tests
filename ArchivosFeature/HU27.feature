@@ -1,20 +1,21 @@
-Feature: Acceder al panel principal de navegación
-  Como paciente (Miguel)
-  Quiero ingresar a la pantalla principal después de iniciar sesión
-  Para navegar entre las secciones principales de la app.
+Feature: Ajustar brillo y contraste
+  Como paciente
+  Quiero ajustar las ayudas visuales
+  Para adaptar la pantalla a mis necesidades
 
-  Scenario: Acceso a la pantalla principal
-    Given que el paciente está en "Iniciar Sesion"
-    When ingresa sus credenciales correctas
-    Then la aplicación muestra la pantalla "¡Bienvenido Miguel!" con los botones "Accesos", "Ajustes rápidos", "Navegación" y "Bienestar y soporte"
+  Scenario: Ajustar y guardar el brillo
+    Given que el paciente está en "Accesibilidad"
+    When selecciona "Ayudas Visuales"
+    And selecciona "Brillo"
+    And ajusta el brillo a un nivel más alto
+    And presiona "Guardar cambios"
+    Then el brillo se aplica
+    And la app regresa a "Ayudas Visuales"
 
-  Scenario: Acceder a Bienestar y soporte
-    Given que el paciente está en la pantalla principal
-    When presiona "Bienestar y soporte"
-    Then la aplicación muestra esa sección
-
-  Scenario: Acceder a Configuración desde la barra inferior
-    Given que el paciente está en la pantalla principal
-    When selecciona el ícono de la tuerca
-    Then accede al menú de Configuración General
-
+  Scenario: Ajustar y cancelar el contraste
+    Given que el paciente está en "Ayudas Visuales"
+    When selecciona "Contraste"
+    And ajusta el contraste
+    And presiona "Cancelar"
+    Then los cambios no se aplican
+    And la app regresa a "Ayudas Visuales"
