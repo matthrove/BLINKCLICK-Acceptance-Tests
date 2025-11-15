@@ -1,15 +1,20 @@
-Feature: Acceder y llamar a contactos de emergencia
-  Como paciente
-  Quiero ver mi lista de contactos configurados
-  Para llamar rápidamente en situaciones de emergencia.
+Feature: Gestionar configuraciones del paciente desde el cuidador
+  Como cuidador
+  Quiero gestionar remotamente configuraciones del paciente
+  Para brindarle asistencia
 
-  Scenario: Llamar a un contacto de emergencia
-    Given que el paciente está en el panel de Seguridad
-    When selecciona "Llamadas de emergencia"
-    And presiona el ícono de llamar junto a "Papa"
-    Then la aplicación muestra "Papa - Llamando..."
+  Scenario: Acceso a la configuración remota
+    Given que el cuidador tiene un paciente vinculado
+    When selecciona "Configuraciones"
+    And selecciona "Configuración del paciente"
+    Then se muestra el menú con "Historial", "Cursores", "Modo Reposo" y "Descanso visual"
 
-  Scenario: Sin contactos configurados
-    Given que el paciente no tiene contactos registrados
-    When selecciona "Llamadas de emergencia"
-    Then la aplicación muestra "No hay contactos disponibles"
+  Scenario: Configurar Modo Reposo del paciente
+    Given que el cuidador está en "Configuraciones del paciente"
+    When selecciona "Modo Reposo"
+    Then se muestra la pantalla para activar o desactivar el modo reposo del paciente
+
+  Scenario: Visualizar historial del paciente
+    Given que el cuidador está en "Configuraciones del paciente"
+    When selecciona "Historial"
+    Then la aplicación muestra el historial del paciente
